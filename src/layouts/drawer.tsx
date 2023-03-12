@@ -5,8 +5,10 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
+import MenuIcon from '@mui/icons-material/Menu';
+import logo from '../assets/logo.jpg'
 
-import { Box, Drawer, List, ListItem, ListItemButton, ListItemText, ListItemIcon, IconButton } from '@mui/material';
+import { Box, Drawer, List, ListItem, ListItemButton, ListItemText, ListItemIcon, IconButton, Stack } from '@mui/material';
 
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -77,11 +79,14 @@ export const NavBar = ({children}:any)=>{
                 
                 sx={{p:20}}
             >
-            <Box sx={{mt:5}}>
+            <Stack  spacing={1} direction={"row"} mt={5} sx={{display:"flex", justifyContent:"space-around"}}>
+                <Box sx={{display:state?"flex":"none"}}>
+                    <img src={logo} alt='Company Logo' width={"90px"}/>
+                </Box>
                 <IconButton onClick={()=>{setState(!state)}} >
-                    <MenuBookOutlined/>
+                    <MenuIcon/>
                 </IconButton>
-            </Box>
+            </Stack>
             
                 <List sx={{display:"block", textAlign:"center", justifyContent:"center", width:state?"100%":"100px", overflow:"hidden"}}>
                 {
